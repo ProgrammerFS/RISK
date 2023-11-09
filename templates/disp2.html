@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary Display</title>
+</head>
+<body>
+    <h1>Summary</h1>
+
+    <h2>Modified Sections:</h2>
+    <ul>
+        {% for section in summary["New"] %}
+        <h3>New</h3>
+        <li>
+            {% for key, value in section.items() %}
+            {% if value[0] != None %}
+                <strong>{{ key }}:</strong> 
+                <p>{{ value[0] }}</p><br>
+            {% endif %}
+            {% if value[0] == None %}
+            <p>This is None</p>
+            {% endif %}
+            {% endfor %}
+        </li>
+        {% endfor %}
+        {% for section in summary["Old"] %}
+        {% for key, value in section.items() %}
+        {% if value[0] != None %}
+        <h3>Old</h3>
+       
+        <li>
+            
+            <strong>{{ key }}:</strong> 
+            <p>{{ value[0] }}</p><br>
+            
+        </li>
+        {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+    <h2>Added Sections:</h2>
+    <ul>
+        {% for section in summary["Added"] %}
+        <li>
+            {% for key, value in section.items() %}
+            {% if value[0] != None %}
+            <strong>{{ key }}:</strong> 
+            <p>{{ value[0] }}</p><br>
+            
+            {% endif %}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Removed Sections:</h2>
+    <ul>
+        {% for section in summary["Removed"] %}
+        <li>
+            {% for key, value in section.items() %}
+            <strong>{{ key }}:</strong> {{ value }}<br>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
