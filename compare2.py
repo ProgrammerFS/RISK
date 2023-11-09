@@ -4,7 +4,7 @@ import difflib
 import google.generativeai as palm
 import json
 
-API = "AIzaSyBkQBKS8Reo8Iue8yZLlWJitzODLsOcQmg"
+API = "API KEY"
 
 def summarize_topic(dict1):
     palm.configure(api_key=API)
